@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import tables.T_User;
 import javax.persistence.Entity;
-
 @Getter
 @NoArgsConstructor
 @Entity
@@ -27,11 +26,6 @@ public class UserItem {
         this.schoolYear = user.schoolYear + "年生";
         this.height = user.height + "cm";
         this.food = user.food;
-    }
-    
-    public String toString() {
-        return "Parent [id=" + id + ", name=" + name + ", schoolYear="
-                + schoolYear + ", height=" + height + " + food=" + food + "]";
     }
     
 }
