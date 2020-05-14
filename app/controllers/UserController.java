@@ -1,18 +1,15 @@
-@(userForm: Form[tables.T_User])
+package controllers;
 
+import java.util.*;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import io.ebean.*;
+import play.mvc.*;
+import play.api.data.Form;
+import tables.T_User;
 
-@views.html.main("一覧") {
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-    @helper.form(action = routes.UserController.create()) {
-	  @helper.inputText(userForm("name"))
-      @helper.inputText(userForm("schoolYear"))
-      @helper.inputText(userForm("birthDay"))
-      @helper.inputText(userForm("height"))
-      @helper.inputText(userForm("food"))
- <input type="submit" class="btn btn-primary" value="SUBMIT" />
-     }
-     </div>
-   </div>
-</div>
+public class UserController extends Controller{
+		public Result init() {
+	        return ok(views.html.user.render());
+	    }
+}
