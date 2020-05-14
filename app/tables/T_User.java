@@ -8,10 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import play.api.data.validation.*;
-import tables.find.All;
-import tables.find.Fuzzy;
-
 @Entity
 @Table(name = "t_user")
 public class T_User extends BaseTable {
@@ -23,6 +19,8 @@ public class T_User extends BaseTable {
     public String name;
 
     public Integer schoolYear;
+    
+    public Date birthDay;
 
     public Integer height;
 
@@ -31,4 +29,5 @@ public class T_User extends BaseTable {
     public boolean isEmpty() {
         return id == null;
     }
+
 }
