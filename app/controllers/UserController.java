@@ -16,7 +16,6 @@ public class UserController extends Controller{
    private Form<T_User> form;
    private Form<FormTable> form2;
    private FormFactory formFactory;
-   T_User tuser = new T_User();
 
    @Inject
    public UserController(FormFactory formFactory) {
@@ -24,7 +23,7 @@ public class UserController extends Controller{
        this.form2 = formFactory.form(FormTable.class);
    }
    public Result init() {
-       return ok(views.html.user.render(tuser, false));
+       return ok(views.html.user.render(false));
    }
    
    @Transactional
@@ -38,7 +37,7 @@ public class UserController extends Controller{
        user2.height = user.height;
        user2.food = user.food;
         user2.save();
-       return ok(views.html.user.render(tuser, false));
+       return ok(views.html.user.render(false));
    }
    
    @Transactional
@@ -46,7 +45,7 @@ public class UserController extends Controller{
 	   Finder<Long, T_User> finder = new Finder<Long, T_User>(T_User.class);
        T_User user = finder.byId(id);
        System.out.println(user);
-       return ok(views.html.user.render(tuser, true));
+       return ok(views.html.user.render(user, true));
    }
    
    @Transactional
@@ -66,7 +65,7 @@ public class UserController extends Controller{
        user2.height = user.height;
        user2.food = user.food;
 	   user2.update();
-       return ok(views.html.user.render(tuser, true));
+       return ok(views.html.user.render(true));
    }
    
    @Transactional
