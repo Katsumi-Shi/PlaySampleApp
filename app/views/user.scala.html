@@ -1,7 +1,8 @@
-@(isEdit:Boolean)
+@(userForm: tables.T_User, isEdit:Boolean)
+
 @action = @{
   if (isEdit) {
-    routes.UserController.update()
+    routes.UserController.update(userForm.id)
   } else {
     routes.UserController.create()
   }
@@ -36,7 +37,7 @@
 <hr>
     <div class="row">
       <div class="col-lg-12">
-        @helper.form(action = routes.UserController.delete()) {
+        @helper.form(action = routes.UserController.delete(userForm.id)) {
           <input type="submit" class="btn btn-danger" value="削除" />
         }
       </div>
