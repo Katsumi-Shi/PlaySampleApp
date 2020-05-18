@@ -41,6 +41,7 @@ public class UserController extends Controller{
    }
    
    @Transactional
+   
    public Result edit(Long id) {
 	   Finder<Long, T_User> finder = new Finder<Long, T_User>(T_User.class);
        T_User user = finder.byId(id);
@@ -49,6 +50,7 @@ public class UserController extends Controller{
    }
    
    @Transactional
+   
    public Result update(Http.Request rq, Long id) {
 	   Finder<Long, T_User> finder = new Finder<Long, T_User>(T_User.class);
        T_User iduser = finder.byId(id);

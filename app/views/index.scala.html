@@ -1,6 +1,7 @@
 @import java.util.List._
 @(people: java.util.List[tables.T_User])
 
+
 @views.html.main("INDEX") {
 <div class="container">
   <div class="row">
@@ -40,7 +41,7 @@
             <td>@p.createdAt</td>
             <td>@p.updatedAt</td>
             <td>
-              <a class="btn btn-success" href="@routes.UserController.edit(p.id)">編集</a>
+              <a class="btn btn-success" href="@routes.UserController.edit(p.id)">邱ｨ髮�</a>
             </td>
           </tr>
         }
