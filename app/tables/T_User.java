@@ -29,5 +29,4 @@ public class T_User extends BaseTable {
     public boolean isEmpty() {
         return id == null;
     }
-
 }

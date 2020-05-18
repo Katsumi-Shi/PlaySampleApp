@@ -9,7 +9,7 @@
           <div class="input-group col-sm-4">
           <a class="btn btn-primary pull-right" href="@routes.UserController.init">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            新規作成
+            PLUS
           </a>
           </div>
         </div>
@@ -39,6 +39,9 @@
             <td>@p.food</td>
             <td>@p.createdAt</td>
             <td>@p.updatedAt</td>
+            <td>
+              <a class="btn btn-success" href="@routes.UserController.edit(p.id)">編集</a>
+            </td>
           </tr>
         }
         </tbody>
