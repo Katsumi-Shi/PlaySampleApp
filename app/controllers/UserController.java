@@ -53,15 +53,18 @@ public class UserController extends Controller{
    public Result update(Http.Request rq, Long id) {
 	   Finder<Long, T_User> finder = new Finder<Long, T_User>(T_User.class);
        T_User user2 = finder.byId(id);
+       T_User newuser = new T_User();
 	   Form<FormTable> userForm = form2.bindFromRequest(rq);
        FormTable user = userForm.get();
-       user2.name = user.name;
-       user2.schoolYear = user.schoolYear;
-       user2.birthDay = user.birthDay;
-       user2.height = user.height;
-       user2.food = user.food;
-	   user2.update();
-       return ok(views.html.user.render(user2, true));
+       user2.delete();
+       newuser.id = id;
+       newuser.name = user.name;
+       newuser.schoolYear = user.schoolYear;
+       newuser.birthDay = user.birthDay;
+       newuser.height = user.height;
+       newuser.food = user.food;
+       newuser.save();
+       return ok(views.html.user.render(newuser, false));
    }
    
    @Transactional

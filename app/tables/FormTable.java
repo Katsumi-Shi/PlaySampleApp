@@ -1,24 +1,31 @@
 package tables;
 
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class FormTable extends BaseTable{
-	
-	    @Id
-	    public Long id;
+@Entity
+public class FormTable extends BaseTable {
 
-	    public String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
 
-	    public Integer schoolYear;
-	    
-	    public Date birthDay;
+    public String name;
 
-	    public Integer height;
+    public Integer schoolYear;
+    
+    public Date birthDay;
 
-	    public String food;
+    public Integer height;
 
-	    public boolean isEmpty() {
-	        return id == null;
-	    }
-	}
+    public String food;
+
+    public boolean isEmpty() {
+        return id == null;
+    }
+}
