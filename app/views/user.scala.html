@@ -11,7 +11,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>新規登録画面</title>
+    @{if (isEdit){
+    <title>編集画面</title>
+    } else{
+     <title>新規登録画面</title>
+    }
+    }
   </head>
  <body>
   <div class="container">
@@ -20,17 +25,20 @@
     @helper.form(action = action) {
       <input type="hidden" name="id">
       <label for="name">名前</label>
-      <input type="text" name="name">
+      <input type="text" name="name" value="@userForm.name">
 		<label for="name">学年</label>
-      <input type="text" name="schoolYear">
+      <input type="text" name="schoolYear" value="@userForm.schoolYear">
        <label for="name">誕生日</label>
-      <input type="text" name="birthDay">
+      <input type="text" name="birthDay" value="@userForm.birthDay">
        <label for="name">身長</label>
-      <input type="text" name="height">
+      <input type="text" name="height" value="@userForm.height">
        <label for="name">好きな食べ物</label>
-      <input type="text" name="food">
-      <input type="submit" value="button">
+      <input type="text" name="food" value="@userForm.food">
+      <input type="submit" value="編集">
 }
+			 <td>
+              <a class="btn btn-success" href="@routes.Application.index()">TOP</a>
+            </td>
    </div>
 </div>
 </div>

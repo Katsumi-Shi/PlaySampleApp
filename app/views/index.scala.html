@@ -1,4 +1,5 @@
 @import java.util.List._
+@import play.mvc.Http.Request
 @(people: java.util.List[tables.T_User])
 
 
@@ -6,8 +7,19 @@
 <div class="container">
   <div class="row">
     <div class="page-header">
+    @helper.form(action = routes.Application.search()) {
         <div class="form-inline">
           <div class="input-group col-sm-4">
+           <input type="text" class="form-control" placeholder="NAME" name="searchWord">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                SEARCH
+              </button>
+            </span>
+          </div>
+        </div>
+      }
           <a class="btn btn-primary pull-right" href="@routes.UserController.init">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             PLUS
