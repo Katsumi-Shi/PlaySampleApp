@@ -1,0 +1,65 @@
+@import java.util.List._
+@import play.mvc.Http.Request
+@(people: java.util.List[tables.T_User])
+
+
+@views.html.main("INDEX") {
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+    @helper.form(action = routes.Application.search()) {
+        <div class="form-inline">
+          <div class="input-group col-sm-4">
+           <input type="text" class="form-control" placeholder="NAME" name="searchWord">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                SEARCH
+              </button>
+            </span>
+          </div>
+        </div>
+      }
+          <a class="btn btn-primary pull-right" href="@routes.UserController.init">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            PLUS
+          </a>
+          </div>
+        </div>
+    </div>
+    <div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>NAME</th>
+            <th>GRADE</th>
+            <th>BIRTHDAY</th>
+            <th>HEIGHT</th>
+            <th>FAVORITE</th>
+            <th>CREATED</th>
+            <th>UPDATE</th>
+          </tr>
+        </thead>
+        <tbody>
+        @for(p <- people) {
+          <tr>
+            <td>@p.id</td>
+            <td>@p.name</td>
+            <td>@p.schoolYear</td>
+            <td>@p.birthDay</td>
+            <td>@p.height</td>
+            <td>@p.food</td>
+            <td>@p.createdAt</td>
+            <td>@p.updatedAt</td>
+            <td>
+              <a class="btn btn-success" href="@routes.UserController.edit(p.id)">EDIT</a>
+            </td>
+          </tr>
+        }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+}
