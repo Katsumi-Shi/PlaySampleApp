@@ -24,6 +24,7 @@ libraryDependencies += "com.h2database" % "h2" % "1.4.192"
 libraryDependencies += "org.projectlombok" % "lombok" % "1.16.10"
 libraryDependencies += "com.typesafe" % "config" % "1.3.1"
 libraryDependencies += "org.playframework.anorm" %% "anorm" % "2.6.4"
+libraryDependencies += "org.mockito" % "mockito-core" % "2.10.0" % "test"
 
 
 // LESS compile setting
